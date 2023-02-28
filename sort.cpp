@@ -41,19 +41,18 @@ int partition_2(vector<int> &v, int left, int right) {
 }
 
 
-// 单向扫描
+// 单向扫描（交换）
 int partition_1(vector<int> &v, int left, int right) {
-    int key = v[right];
-    int i = left;
-    for(int j = left; j <= right; j++) {
-        if(v[j] < key) {
+    int i = left; // 当前可存储比key小的位置
+    for(int j = left; j < right; j++) { // j和right不能相遇
+        if(v[j] <= v[right]) {      
             swap(v[i], v[j]);
             i++;
         }
     }
     swap(v[i], v[right]);
     return i;
-}
+} 
 
 void quick(vector<int> &v, int left, int right) {
     if (left < right) {
