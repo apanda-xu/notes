@@ -146,7 +146,7 @@ void adjustHeap(vector<int> &v, int i, int len) {
 void heapSort(vector<int> &v) {
     int len = v.size();
     // 从最后一个非叶子节点开始，调整堆,得到最大堆
-    for(int i = (len-1) / 2; i >= 0; i--) {
+    for(int i = len/2-1; i >= 0; i--) {
         adjustHeap(v, i, len);
     }  
     // 循环将首位最大值与末尾交换，然后重新调整最大堆
